@@ -1,0 +1,9 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.containerForm{
+    margin: auto;
+    width: 50%;
+    padding-top: 40px;
+}
