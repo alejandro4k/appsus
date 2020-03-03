@@ -16,7 +16,7 @@ class AgregarProductos extends Component {
       var dataform = new FormData();
       dataform.append("id_user", id_usuario);
   
-      Axios.post("http://localhost/Api1/Main/listarCategorias", dataform).then(
+      Axios.post("https://thawing-ocean-79982.herokuapp.com/Main/listarCategorias", dataform).then(
         res => {
           this.setState({
             categorias: res.data
@@ -58,7 +58,7 @@ class AgregarProductos extends Component {
         dataform.append("stock", stock);
         dataform.append("precio", precio);
         dataform.append("categoria", Categoria);
-        Axios.post("http://localhost/Api1/Main/addProducto", dataform).then(res => {
+        Axios.post("https://thawing-ocean-79982.herokuapp.com/Main/addProducto", dataform).then(res => {
           if (res.data === true) {
             alert("Producto agregado exitosamente.");
             this.limpiar();

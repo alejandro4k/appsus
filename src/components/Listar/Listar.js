@@ -17,7 +17,7 @@ class Listar extends Component {
     var id_usuario = localStorage.getItem("id_user");
     var dataformat = new FormData();
     dataformat.append("id_usuario", id_usuario);
-    Axios.post("http://localhost/Api1/Main/listarProductos", dataformat).then(
+    Axios.post("https://thawing-ocean-79982.herokuapp.com/Main/listarProductos", dataformat).then(
       res => {
         console.log(res.data);
         if (res.data !== false) {
@@ -36,14 +36,14 @@ class Listar extends Component {
     if (window.confirm("estas seguro de eliminar este producto?")) {
       var dataform = new FormData();
       dataform.append("id_producto", id_producto);
-      Axios.post("http://localhost/Api1/Main/deleteProducto", dataform).then(
+      Axios.post("https://thawing-ocean-79982.herokuapp.com/Main/deleteProducto", dataform).then(
         res => {
           if (res.data === true) {
             var dataformat2 = new FormData();
             var id_usuario = localStorage.getItem("id_user");
             dataformat2.append("id_usuario", id_usuario);
             Axios.post(
-              "http://localhost/Api1/Main/listarProductos",
+              "https://thawing-ocean-79982.herokuapp.com/Main/listarProductos",
               dataformat2
             ).then(res => {
               //console.log(res.data);
@@ -83,7 +83,7 @@ class Listar extends Component {
     dataform.append("nombre", document.getElementById("producto").value);
     dataform.append("precio", document.getElementById("precio").value);
     dataform.append("stock", document.getElementById("stock").value);
-    Axios.post("http://localhost/Api1/Main/updateProducto", dataform).then(
+    Axios.post("https://thawing-ocean-79982.herokuapp.com/Main/updateProducto", dataform).then(
       res => {
         if (res.data === true) {
           alert("producto actualizado.");
@@ -105,7 +105,7 @@ class Listar extends Component {
   }
 
   render() {
-    if (this.state.categorias != null) {
+    if (this.state.categorias) {
       options = this.state.categorias.map(function(e) {
         return <option value={e.id_categorias}>{e.nombre_categoria}</option>;
       });
@@ -113,7 +113,7 @@ class Listar extends Component {
       options = <option disabled>No hay categorias</option>;
     }
 
-    if (this.state.productos != null) {
+    if (this.state.productos) {
       listaProductos = this.state.productos.map(e => {
         return (
           <tr>

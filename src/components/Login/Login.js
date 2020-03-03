@@ -28,7 +28,7 @@ class Login extends Component {
             var dataform = new FormData();
             dataform.append("username",user);
             dataform.append("pass",pass);
-            Axios.post("http://localhost/Api1/Main/createUser",dataform)
+            Axios.post("https://thawing-ocean-79982.herokuapp.com/Main/createUser",dataform)
             .then(res =>{
                 console.log(res.data)
                 if(res.data.status){
@@ -66,7 +66,7 @@ class Login extends Component {
         'Authorization': 'JWT fefege...'
       }
       */
-    Axios.post("http://localhost/Api1/Main/Validate", dataform).then(res => {
+    Axios.post("https://thawing-ocean-79982.herokuapp.com/Main/Validate", dataform).then(res => {
       console.log(res.data);
       if (res.data.status == true) {
           localStorage.setItem("id_user", res.data.id_usuario);
@@ -75,7 +75,7 @@ class Login extends Component {
         //console.log(localStorage.getItem("id_user"))
         //localStorage.setItem("password", pass);
       } else {
-        alert(this.data.msg);
+        alert("usuario o contraseña incorrectos.");
       }
     });
   }

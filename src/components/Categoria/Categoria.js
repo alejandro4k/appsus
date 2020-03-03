@@ -20,7 +20,7 @@ class Categoria extends Component {
     var dataform = new FormData();
     dataform.append("id_user",id_user);
     dataform.append("categoria",categoria);
-    Axios.post("http://localhost/Api1/Main/addCategoria",
+    Axios.post("https://thawing-ocean-79982.herokuapp.com/Main/addCategoria",
     dataform
     ).then(res =>{
         console.log(res.data)
